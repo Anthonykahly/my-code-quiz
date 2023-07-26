@@ -1,5 +1,18 @@
+/*Defining colors as variables*/
+:root {
+    --blue: #1e90ff;
+    --white: #ffffff;
+    --lightblue: #ADD8E6;
+    --lighterblue: #A7C7E7;
+    --red: #E32227;
+    --black: #000;
+    --lightgrey: #8A8A8A;
+    --grey: #454545;
+    --bluegrey: #7393B3
+}
+
 /*Setting the defaults of the page*/
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,13 +22,14 @@
 
 /*Setting the background color of the page*/
 body {
-    background: lightblue
+    background: var(--lightblue)
 }
 
 /*Start button layout*/
 .start_btn,
-.info_box {
-    position:absolute;
+.info_box,
+.quiz_actual {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -30,46 +44,201 @@ body {
     outline: none;
     border: none;
     border-radius: none;
-    background: white;
+    background: var(--white);
     cursor: pointer;
 }
 
-.info_box{
+.info_box {
+    display: none;
     width: 540px;
-    background: white;
+    background: var(--white);
     border-radius: 5px;
 }
 
 .info_box .info_title {
-height: 60px;
-width: 100%;
-border-bottom: 1px solid grey;
-display: flex;
-align-items: center;
-padding: 0 35px;
-font-size: 20px;
-font-weight: 600;
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid var(--grey);
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
+/*Defining sizing settings*/
 .info_box .info_list {
     padding: 15px 35px;
 }
 
-.info_box .info_list .info{
+.info_box .info_list .info {
     margin: 5px 0;
     font-size: 17px;
 }
 
-.info_box .info_list .info span{
+.info_box .info_list .info span {
     font-weight: 600;
-    color: red;
+    color: var(--red);
 }
 
+/*Display configuration for buttons*/
 .info_box .buttons {
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     padding: 0 35px;
-    border-top: 1px solid lightgrey;
+    border-top: 1px solid var(--grey);
+}
+
+/*Defining color for buttons*/
+.info_box .buttons button {
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+/*Defining color for buttons*/
+.buttons button.quit,
+.buttons button.restart {
+    color: var(--blue);
+    border-color: var(--blue);
+}
+
+/*Defining mouseover color change for buttons*/
+.buttons button.quit:hover,
+.buttons button.restart:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+/*Display configuration for quiz box*/
+.quiz_actual {
+    width: 550px;
+    background: var(--white);
+    border-radius: 5px;
+}
+
+.quiz_actual header {
+    height: 70px;
+    padding: 0 30px;
+    background: var(--white);
+    display: flex;
+    z-index: 99;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid var(--grey);
+}
+
+.quiz_actual header .title {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/*Display configuration for quiz timer options*/
+.quiz_actual header .timer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 145px;
+    height: 45px;
+    background: var(--white);
+    border: 1px solid;
+    border-color: var(--blue);
+    padding: 0 8px;
+    border-radius: 5px;
+}
+
+.quiz_actual header .timer .timer_text {
+    font-weight: 400;
+    font-size: 18px;
+    user-select: none;
+}
+
+.quiz_actual header .timer .timer_sec {
+    font-size: 26px;
+    font-weight: 500;
+    background: var(--blue);
+    height: 30px;
+    color: var(--white);
+    text-align: center;
+    width: 45px;
+    line-height: 31px;
+    border-radius: 5px;
+    border: 1px solid;
+    user-select: none;
+}
+
+/*Display configuration for quiz box section*/
+.quiz_actual section {
+    padding: 25px 30px 20px 30px;
+    background: var(--white);
+}
+
+/*Display configuration for quiz text*/
+.quiz_actual section .q_text {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+/*Display configuration for quiz options*/
+.quiz_actual section .options_li {
+    padding: 20px 0;
+    display: block;
+}
+
+/*Display configuration for quiz answer options*/
+section .options_li .options {
+    background: var(--lightblue);
+    border: 1px solid var(--bluegrey);
+    margin-bottom: 15px;
+    padding: 8px 16px;
+    display: flex;
+    font-size: 17px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+section .options_li .options:hover {
+    color: var(--blue);
+    background: var(--lighterblue);
+    border-color: var(--blue);
+}
+
+
+.options_li .option:last-child {
+    margin-bottom: 0px;
+}
+
+.options_li .options .icon {
+    height: 30px;
+    border: 2px solid transparent;
+    width: 30px;
+    border-radius: 50%;
+    font-weight: 700;
+    text-align: center;
+    font-size: 20px;
+}
+
+.options_li .options .icon.tick {
+    border-color: green;
+    color: green;
+    background: var(--lightblue);
+}
+
+.options_li .options .icon.cross {
+    border-color: var(--red);
+    color: var(--red);
+    background: var(--lightblue);
 }
