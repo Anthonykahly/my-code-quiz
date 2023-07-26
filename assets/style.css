@@ -28,7 +28,8 @@ body {
 /*Start button layout*/
 .start_btn,
 .info_box,
-.quiz_actual {
+.quiz_actual,
+.results {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -108,7 +109,7 @@ body {
 /*Defining color for buttons*/
 .buttons button.quit,
 .buttons button.restart {
-    color: var(--blue);
+    color: var(--black);
     border-color: var(--blue);
 }
 
@@ -121,7 +122,7 @@ body {
 
 /*Display configuration for quiz box*/
 .quiz_actual {
-   
+    display: none;
     width: 550px;
     background: var(--white);
     border-radius: 5px;
@@ -245,13 +246,53 @@ section .options_li .options:hover {
 }
 
 .quiz_actual footer {
-height: 60px;
-width: 100%;
-display: flex;
-align-items: center;
-padding: 0 30px;
-justify-content: space-between;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    justify-content: space-between;
 }
+
+.results {
+    background: var(--white);
+    width: 450px;
+    border-radius: 5px;
+    padding: 25px 31px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+ 
+.results .icon {
+    font-size: 50px;
+    font-weight: 500;
+    color: gold;
+    margin-bottom: 10px;
+}
+
+.results .complete_txt {
+    font-size: 25px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--blue);
+}
+
+.results .score_txt span {
+    display: flex;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.score_txt span p{
+    font-weight: 600;
+    padding: 0 4px;
+}
+
+
+
 
 .quiz_actual footer .total_q span {
     display: flex;
@@ -281,5 +322,5 @@ footer .next_btn {
 }
 
 footer .next_btn:hover {
-   background: var(--blue);
+    background: var(--blue);
 }
