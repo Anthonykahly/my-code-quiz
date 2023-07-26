@@ -42,8 +42,8 @@ body {
     color: black;
     padding: 15px 30px;
     outline: none;
-    border: none;
-    border-radius: none;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
     background: var(--white);
     cursor: pointer;
 }
@@ -121,7 +121,7 @@ body {
 
 /*Display configuration for quiz box*/
 .quiz_actual {
-    display: none;
+   
     width: 550px;
     background: var(--white);
     border-radius: 5px;
