@@ -34,6 +34,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0px 4px 8px 0 var(--grey);
 }
 
 /*Start button styling*/
@@ -50,10 +51,12 @@ body {
 }
 
 .info_box {
-    display: none;
     width: 540px;
     background: var(--white);
     border-radius: 5px;
+    opacity: 0; 
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
 }
 
 .info_box .info_title {
@@ -62,7 +65,7 @@ body {
     border-bottom: 1px solid var(--grey);
     display: flex;
     align-items: center;
-    padding: 0 35px;
+    padding: 0 30px;
     font-size: 20px;
     font-weight: 600;
 }
@@ -122,10 +125,12 @@ body {
 
 /*Display configuration for quiz box*/
 .quiz_actual {
-    display: none;
     width: 550px;
     background: var(--white);
     border-radius: 5px;
+   /* opacity: 0; 
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9); */
 }
 
 .quiz_actual header {
@@ -264,8 +269,11 @@ section .options_li .options:hover {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    opacity: 0; 
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
 }
- 
+
 .results .icon {
     font-size: 50px;
     font-weight: 500;
@@ -284,6 +292,25 @@ section .options_li .options:hover {
     margin: 10px 0;
     font-size: 18px;
     font-weight: 400;
+}
+
+.results .buttons {
+    display: flex;
+    margin: 20px 0;
+}
+
+.results .buttons button{
+    margin: 0 10px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid var(--blue);
+    cursor: pointer;
+    transition: all 0.3s ease; 
 }
 
 .score_txt span p{
