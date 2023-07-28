@@ -4,25 +4,55 @@ const info_box = document.querySelector(".info_box");
 const exit_btn = info_box.querySelector(".buttons .quit");
 const continue_btn = info_box.querySelector(".buttons .restart");
 const quiz_actual = document.querySelector(".quiz_actual");
-const results = document.querySelector(".results");
-const options_li = document.querySelector(".options_li");
-const time_line = document.querySelector("header .time_line");
-const timeText = document.querySelector(".timer .time_left_txt");
-const timeCount = document.querySelector(".timer .timer_sec");
-// if startQuiz button clicked
+
+
+// setting terms for start button being clicked
 start_btn.onclick = () => {
     info_box.classList.add("activeInfo"); //show info box
 }
-// if exitQuiz button clicked
+
+// setting terms for exit button being clicked
 exit_btn.onclick = () => {
     info_box.classList.remove("activeInfo"); //hide info box
 }
-// if continueQuiz button clicked
+// setting terms for continue button being clicked
 continue_btn.onclick = () => {
-    info_box.classList.remove("activeInfo"); //hide info box
-    quiz_actual.classList.add("activeQuiz"); //show quiz box
-    showQuetions(0); //calling showQestions function
-    queCounter(1); //passing 1 parameter to queCounter
-    startTimer(10); //calling startTimer function
-    startTimerLine(0); //calling startTimerLine function
+    info_box.classList.remove("activeInfo"); //hides info box
+    quiz_actual.classList.add("activeQuiz"); //shows quiz box
+    showQuestions(0);
+    qCounter(1);
 }
+
+let que_count = 0
+
+const next_btn = quiz_actual.querySelector(".next_btn");
+
+//When next button is selected
+next_btn.onClick = ()=>{
+    if (que_count > questions.length - 1){
+        que_count++;
+        showQuestions(que_count);
+    }else{
+        console.log("Questions.Completed");
+    }
+}
+
+//getting questions and pulling options from the array
+function showQuestions(index){
+    const q_text = document.querySelector(".q_text")
+    const options_li = document.querySelector(".options_li")
+    let q_tag = '<span>'+ questions[index].numb+ ". " + questions[index].question +'</span>' //pulling the first question which would be 0 in the array
+    let options_tag = '<div class="options">' + questions[index].options[0] +'<span></span></div>'
+                    + '<div class="options">' + questions[index].options[1] +'<span></span></div>'
+                    + '<div class="options">' + questions[index].options[2] +'<span></span></div>'
+                    + '<div class="options">' + questions[index].options[3] +'<span></span></div>'
+    q_text.innerHTML = q_tag;
+    options_li.innerHTML = options_tag;
+}
+
+function qCounter(index){
+    const bottom_q_counter = quiz_actual.querySelector(".total_q");
+    let totalQCountTag = '<span><p>'+ index +'</p>of<p>'+ questions.length +'</p>Questions</span>';
+    bottom_q_counter.innerHTML = totalQCountTag;
+}
+

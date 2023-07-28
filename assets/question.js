@@ -6,6 +6,7 @@ let questions = [
         answer: "D. All of the above",
         options: ["A. Numbers", "B. Booleans", "C. Strings", "D. All of the above"]
     },
+
     //Quiz question #5 "The condition in an if / else statement is enclosed within ____."
     {
         numb: 2,
@@ -13,6 +14,7 @@ let questions = [
         answer: "C. Parenthese",
         options: ["A. Quotes", "B. Curly Brackets", "C. Parenthese", "D. Square Brackets"]
     },
+
     //Quiz question #5 "A very useful tool for used during development and debugging for printing content to the debugger is:"
     {
         numb: 3,
@@ -20,6 +22,7 @@ let questions = [
         answer: "B. Console Log",
         options: ["A. Javascript", "B. Console Log", "C. Terminal/Bash", "D. For Loops"]
     },
+
     //Quiz question #5 "What does DOM stand for?"
     {
         numb: 4,
@@ -27,6 +30,7 @@ let questions = [
         answer: "C. Document Object Model",
         options: ["A. Do Overnight Modules", "B. Divas Obviously Model", "C. Document Object Model", "D. Dominant Operation Motive"]
     },
+    
     //Quiz question #5 "What is getItem commonly used for?"
     {
         numb: 5,
