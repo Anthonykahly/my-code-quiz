@@ -226,12 +226,12 @@ section .options_li .options {
     justify-content: space-between;
     cursor: pointer;
 }
-
-section .options_li .options:hover {
+/*Defined settings for mouseover quiz answers, might re add later*/
+/*section .options_li .options:hover {
     color: var(--blue);
     background: var(--lighterblue);
     border-color: var(--blue);
-}
+}*/
 
 
 .options_li .option:last-child {
@@ -248,6 +248,24 @@ section .options_li .options:hover {
     font-size: 20px;
 }
 
+/*Color option for correct answers to highlight in green*/
+.options_li .options.correct {
+    border-color: green;
+    color: green;
+    background: #C7FFCB; 
+}
+
+/*Color option for incorrect answers to highlight in red*/
+.options_li .options.incorrect {
+    border-color: var(--red);
+    color: var(--red);
+    background: #FFDCDC;
+}
+
+/*Option called for is JS to disable once user selection is made*/
+.options_li .options.disabled {
+    pointer-events: none;
+}
 .options_li .options .icon.tick {
     border-color: green;
     color: green;
@@ -260,6 +278,7 @@ section .options_li .options:hover {
     background: #FFDCDC;
 }
 
+/*Crganizing the footer options*/
 .quiz_actual footer {
     height: 60px;
     width: 100%;
@@ -269,6 +288,7 @@ section .options_li .options:hover {
     justify-content: space-between;
 }
 
+/*Final pop up box for quiz results*/
 .results {
     background: var(--white);
     width: 450px;
@@ -284,6 +304,7 @@ section .options_li .options:hover {
     transform: translate(-50%, -50%) scale(0.9);
 }
 
+/*Setting the stars icon that will appear when quiz is complete to be larger and gold*/
 .results .icon {
     font-size: 50px;
     font-weight: 500;
@@ -291,12 +312,14 @@ section .options_li .options:hover {
     margin-bottom: 10px;
 }
 
+/*the text that will appear when quiz is finished*/
 .results .complete_txt {
     font-size: 25px;
     font-weight: 600;
     border-bottom: 1px solid var(--blue);
 }
 
+/*Quiz score result*/
 .results .score_txt span {
     display: flex;
     margin: 10px 0;
@@ -345,6 +368,7 @@ footer .total_q span p {
     padding-left: 0px;
 }
 
+/*Layoout for the next question button the user will navigate the quiz with*/
 footer .next_btn {
     height: 40px;
     padding: 0 13px;
