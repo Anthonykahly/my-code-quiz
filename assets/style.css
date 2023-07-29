@@ -1,4 +1,4 @@
-/*Defining colors as variables*/
+/*Defining colors as variables for future use*/ 
 :root {
     --blue: #1e90ff;
     --white: #ffffff;
@@ -52,7 +52,8 @@ body {
 }
 
 .info_box.activeInfo,
-.quiz_actual.activeQuiz {
+.quiz_actual.activeQuiz,
+.results.activeResults {
     z-index: 5;
     opacity: 1;
     pointer-events: auto;
@@ -226,6 +227,7 @@ section .options_li .options {
     justify-content: space-between;
     cursor: pointer;
 }
+
 /*Defined settings for mouseover quiz answers, might re add later*/
 /*section .options_li .options:hover {
     color: var(--blue);
@@ -252,7 +254,7 @@ section .options_li .options {
 .options_li .options.correct {
     border-color: green;
     color: green;
-    background: #C7FFCB; 
+    background: #C7FFCB;
 }
 
 /*Color option for incorrect answers to highlight in red*/
@@ -266,6 +268,7 @@ section .options_li .options {
 .options_li .options.disabled {
     pointer-events: none;
 }
+
 .options_li .options .icon.tick {
     border-color: green;
     color: green;
