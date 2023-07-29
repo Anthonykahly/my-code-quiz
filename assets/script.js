@@ -5,6 +5,8 @@ const exit_btn = info_box.querySelector(".buttons .quit");
 const continue_btn = info_box.querySelector(".buttons .restart");
 const quiz_actual = document.querySelector(".quiz_actual");
 const options_li = document.querySelector(".options_li");
+const timerCount = quiz_actual.querySelector(".timer .timer_sec")
+
 
 // setting terms for start button being clicked
 start_btn.onclick = () => {
@@ -21,10 +23,13 @@ continue_btn.onclick = () => {
     quiz_actual.classList.add("activeQuiz"); //shows quiz box
     showQuestions(0);
     qCounter(1);
+    startTimer(10);
 }
 
 let q_count = 0 //Question count
 let q_numb = 1 //Question number (1-5)
+let counter;
+let timeV = 10; //Setting time value
 
 //Calling out the next button
 const next_btn = quiz_actual.querySelector("footer .next_btn");
@@ -34,10 +39,12 @@ next_btn.onclick = () => {
     if (q_count < questions.length - 1) {
         q_count++; //Moving to the next question
         q_numb++; //Changing the question # count in the bottom of the footer
-        showQuestions(q_count);
-        qCounter(q_numb);
+        showQuestions(q_count); //Question count
+        qCounter(q_numb); //Question number
+        clearInterval(counter); //On click of nextbutton resets timer
+        startTimer(timeV); //Then starts a new timer for 10 seconds
     } else {
-        console.log("Quiz Completed");
+        console.log("Quiz Completed"); //Logs when the entire array of questions has been completed
     }
 }
 
@@ -60,8 +67,10 @@ function showQuestions(index) {
     }
 }
 
-let tickIconTag = '<div class="icon tick"><span>&#10003;</span></i></div>';
-let crossIconTag = '<div class="icon cross"><span>&#x2717;</span></i></div>';
+//creating a tag for a green checkmark for correct answer visuals
+let checkIconTag = '<div class="icon tick"><span>&#10003;</span></i></div>';
+//creating a tag for a red X for incorrect answer visuals
+let xIconTag = '<div class="icon cross"><span>&#x2717;</span></i></div>';
 
 function optionSelected(answer) { //Setting up the function for user selecting quiz answers
     let userAnswer = answer.textContent;
@@ -71,13 +80,17 @@ function optionSelected(answer) { //Setting up the function for user selecting q
     if (userAnswer == correctAnswer) {
         answer.classList.add("correct"); //Set the option to change to the ".options.correct" option defined in CSS
         console.log("Answer Correct"); //Simple console log of correct answer for tracking functionality might remove later
+        answer.insertAdjacentHTML("beforeend", checkIconTag) //Inserts a green checkmark when user selection is correct answer
     } else {
         answer.classList.add("incorrect"); //Set the option to change to the ".options.incorrect" option defined in CSS
         console.log("Incorrect Answer"); //Simple console log of incorrect answer for tracking functionality might remove later
+        answer.insertAdjacentHTML("beforeend", xIconTag) //Inserts an X on the incorrect option when selected
 
+        //selects the correct answer if user chooses the wrong answer
         for (let i = 0; i < allOptions; i++) {
             if (options_li.children[i].textContent == correctAnswer) {
                 options_li.children[i].setAttribute("class", "options correct")
+                options_li.children[i].insertAdjacentHTML("beforeend", checkIconTag); //Puts a green check on the correct answer if user is incorrect
             }
         }
     }
@@ -86,6 +99,18 @@ function optionSelected(answer) { //Setting up the function for user selecting q
         options_li.children[i].classList.add("disabled");  //Once user selects, disabling all options
     }
 }
+
+//starting timer function 10sec per question
+function startTimer(time) {
+    counter = setInterval(timer, 1000);
+    function timer(){
+        timerCount.textContent = time;
+        time--;
+    }
+}
+
+
+
 
 
 function qCounter(index) {
