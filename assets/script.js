@@ -67,18 +67,24 @@ function optionSelected(answer) { //Setting up the function for user selecting q
     let userAnswer = answer.textContent;
     let correctAnswer = questions[q_count].answer;
     let allOptions = options_li.children.length;
+    console.log(userAnswer) //Logs the users input for answer
     if (userAnswer == correctAnswer) {
         answer.classList.add("correct"); //Set the option to change to the ".options.correct" option defined in CSS
         console.log("Answer Correct"); //Simple console log of correct answer for tracking functionality might remove later
     } else {
         answer.classList.add("incorrect"); //Set the option to change to the ".options.incorrect" option defined in CSS
         console.log("Incorrect Answer"); //Simple console log of incorrect answer for tracking functionality might remove later
+
+        for (let i = 0; i < allOptions; i++) {
+            if (options_li.children[i].textContent == correctAnswer) {
+                options_li.children[i].setAttribute("class", "options correct")
+            }
+        }
     }
-//Once user selects, disabling all options
-    for (i=0; i < allOptions; i++) {
-        options_li.children[i].classList.add("disabled");
+
+    for (i = 0; i < allOptions; i++) {
+        options_li.children[i].classList.add("disabled");  //Once user selects, disabling all options
     }
-    console.log(userAnswer) //Logs the users input for answer
 }
 
 
