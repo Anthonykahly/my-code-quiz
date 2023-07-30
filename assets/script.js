@@ -38,19 +38,7 @@ const results = document.querySelector(".results"); //Results
 const restart_quiz = results.querySelector(".buttons .restart"); //Quiz restart function
 const quit_quiz = results.querySelector(".buttons .quit"); //Quiz quit functioning
 
-//this section noted out, decided to add reload page into the HTML on line 85
-//restart_quiz.onClick = () => {
-// let q_count = 0 //Question count
-// let q_numb = 1 //Question number (1-5)
-// let counter;
-//let timeV = 10; //Setting time value
-// let useScore = 0;
-//}
 
-//Setting quiz quit button functionality
-//quit_quiz.onClick = () => {
-//    window.location.reload();
-//}
 
 //Setting up the functioning on click settings for the next button
 next_btn.onclick = () => {
