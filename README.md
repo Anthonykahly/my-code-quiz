@@ -28,4 +28,4 @@ Please refer to the LICENSE in the repo.
 ## Links
 
 Github: https://github.com/Anthonykahly/my-code-quiz
-Pages:  https://anthonykahly.github.io/My-Password-Generator/
+Pages:  https://anthonykahly.github.io/my-code-quiz
