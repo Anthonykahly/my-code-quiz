@@ -30,7 +30,7 @@ let questions = [
         answer: "C. Document Object Model",
         options: ["A. Do Overnight Modules", "B. Divas Obviously Model", "C. Document Object Model", "D. Dominant Operation Motive"]
     },
-    
+
     //Quiz question #5 "What is getItem commonly used for?"
     {
         numb: 5,

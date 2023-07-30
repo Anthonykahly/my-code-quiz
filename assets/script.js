@@ -6,7 +6,7 @@ const continue_btn = info_box.querySelector(".buttons .restart");
 const quiz_actual = document.querySelector(".quiz_actual");
 const options_li = document.querySelector(".options_li");
 const timerCount = quiz_actual.querySelector(".timer .timer_sec");
- 
+
 
 // setting terms for start button being clicked
 start_btn.onclick = () => {
@@ -37,6 +37,20 @@ const next_btn = quiz_actual.querySelector("footer .next_btn");
 const results = document.querySelector(".results"); //Results
 const restart_quiz = results.querySelector(".buttons .restart"); //Quiz restart function
 const quit_quiz = results.querySelector(".buttons .quit"); //Quiz quit functioning
+
+//this section noted out, decided to add reload page into the HTML on line 85
+//restart_quiz.onClick = () => {
+// let q_count = 0 //Question count
+// let q_numb = 1 //Question number (1-5)
+// let counter;
+//let timeV = 10; //Setting time value
+// let useScore = 0;
+//}
+
+//Setting quiz quit button functionality
+//quit_quiz.onClick = () => {
+//    window.location.reload();
+//}
 
 //Setting up the functioning on click settings for the next button
 next_btn.onclick = () => {
@@ -112,25 +126,26 @@ function showResultBox() {
     info_box.classList.remove("activeInfo"); //hides info box
     quiz_actual.classList.remove("activeQuiz"); //hides quiz box
     results.classList.add("activeResults"); //shows results box
+    const scoreTxt = results.querySelector(".score_Txt");
+    if (useScore > 0) {
+        let scoreTag = '<span>You got <p>' + useScore + '</p>out of<p>' + questions.length + '</p> questions correct.</span>';
+        scoreTxt.innerHTML = scoreTag;
+    }
 }
 
 
 //starting timer function 10sec per question
 function startTimer(time) {
     counter = setInterval(timer, 1000);
-    function timer(){
+    function timer() {
         timerCount.textContent = time;
         time--;
-        if(time < 0) {
+        if (time < 0) {
             clearInterval(counter);
             timerCount.textContent = "0";
         }
     }
 }
-
-
-
-
 
 function qCounter(index) {
     const bottom_q_counter = quiz_actual.querySelector(".total_q"); //Creating a span tag to counter question number and total questions

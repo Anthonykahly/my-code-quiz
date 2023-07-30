@@ -1,4 +1,4 @@
-/*Defining colors as variables for future use*/ 
+/*Defining colors as variables for future use*/
 :root {
     --blue: #1e90ff;
     --white: #ffffff;
@@ -324,6 +324,13 @@ section .options_li .options {
 
 /*Quiz score result*/
 .results .score_txt span {
+    display: flex;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.score_Txt {
     display: flex;
     margin: 10px 0;
     font-size: 18px;
